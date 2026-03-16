@@ -1,0 +1,159 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Pro</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SEARCH BAR -->
+    <div class="search-bar">
+        <input type="text" id="cityInput" placeholder="Nhập tên thành phố (ví dụ: Hanoi)" value="Hanoi">
+        <button onclick="searchWeather()">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
+
+    <!-- LOCATION -->
+    <div class="location">
+        <h2 id="city">City</h2>
+        <p id="time">Local Time</p>
+    </div>
+
+    <!-- MAIN WEATHER -->
+    <div class="main-weather">
+
+        <div class="icon-temp">
+            <img id="icon" src="" alt="weather icon">
+            <h1 id="temp">--°C</h1>
+        </div>
+
+        <div class="details">
+            <p>Condition: <span id="condition"></span></p>
+            <p>Humidity: <span id="humidity"></span></p>
+            <p>Wind: <span id="wind"></span></p>
+        </div>
+
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+
+        <button id="tempTab" class="active" onclick="showTemperature()">
+            <i class="bi bi-thermometer-half"></i> Temperature
+        </button>
+
+        <button id="precipTab" onclick="showPrecipitation()">
+            <i class="bi bi-droplet-fill"></i> Precipitation
+        </button>
+
+        <button id="windTab" onclick="showWind()">
+            <i class="bi bi-wind"></i> Wind
+        </button>
+
+        <button id="airTab" onclick="showAir()">
+            <i class="bi bi-cloud-haze"></i> Air Quality
+        </button>
+
+        <button id="uvTab" onclick="showUV()">
+            <i class="bi bi-sun-fill"></i> UV Index
+        </button>
+
+        <button id="sunTab" onclick="showSun()">
+            <i class="bi bi-clock"></i> Sunrise & Sunset
+        </button>
+
+    </div>
+
+    <!-- TEMPERATURE SECTION -->
+    <div id="tempSection" class="section">
+
+        <!-- TEMPERATURE CHART -->
+        <div class="temp-chart">
+            <canvas id="temperatureChart"></canvas>
+        </div>
+
+        <!-- HOURLY FORECAST -->
+        <div class="hourly" id="hourly"></div>
+
+        <!-- WEEK FORECAST -->
+        <div class="week" id="week"></div>
+
+    </div>
+
+    <!-- PRECIPITATION -->
+    <div id="precipSection" class="section" style="display:none">
+
+        <div class="info-card">
+            <p><i class="bi bi-cloud-rain-fill"></i> Current Precipitation: <span id="precip"></span></p>
+            <p><i class="bi bi-umbrella-fill"></i> Chance of Rain: <span id="rainChance"></span></p>
+        </div>
+
+    </div>
+
+    <!-- WIND -->
+    <div id="windSection" class="section" style="display:none">
+
+        <div class="info-card">
+            <p><i class="bi bi-wind"></i> Wind Speed: <span id="windSpeed"></span></p>
+            <p><i class="bi bi-compass"></i> Wind Direction: <span id="windDir"></span></p>
+        </div>
+
+    </div>
+
+    <!-- AIR QUALITY -->
+    <div id="airSection" class="section" style="display:none">
+
+        <div class="info-card">
+            <p><i class="bi bi-cloud-haze"></i> Air Quality Index: <span id="airIndex"></span></p>
+        </div>
+
+    </div>
+
+    <!-- UV -->
+    <div id="uvSection" class="section" style="display:none">
+
+        <div class="info-card">
+            <p><i class="bi bi-sun-fill"></i> UV Index: <span id="uv"></span></p>
+        </div>
+
+    </div>
+
+    <!-- SUN -->
+    <div id="sunSection" class="section" style="display:none">
+
+        <div class="info-card">
+            <p><i class="bi bi-sunrise"></i> Sunrise: <span id="sunrise"></span></p>
+            <p><i class="bi bi-sunset"></i> Sunset: <span id="sunset"></span></p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- LOADING -->
+<div id="loading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Đang tải dữ liệu thời tiết...</p>
+</div>
+
+<!-- CHART LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
+```
